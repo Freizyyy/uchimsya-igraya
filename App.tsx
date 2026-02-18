@@ -6,6 +6,102 @@ import TestComponent from './components/TestComponent';
 import { Section, Orphogram, ArenaTask } from './types';
 import { ORPHOGRAMS, MNEMONICS, PRACTICE_QUESTIONS, ARENA_TASKS, FINAL_TEST } from './constants';
 
+// Упрощенный фольклорный фон в едином графическом стиле
+const FolkPatternBackground: React.FC = () => (
+  <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none bg-slate-50">
+    {/* Верхний левый угол: Симметричный растительный узор */}
+    <div className="absolute -left-10 -top-10 w-[400px] h-[500px] opacity-[0.04] text-blue-900">
+      <svg viewBox="0 0 100 150" className="w-full h-full">
+        <path fill="none" stroke="currentColor" strokeWidth="1.5" d="M20,150 Q25,80 50,20 Q75,80 80,150" />
+        {[40, 70, 100, 130].map(y => (
+          <g key={y}>
+            <path fill="none" stroke="currentColor" strokeWidth="1" d={`M50,${y} Q70,${y-15} 85,${y-30}`} />
+            <path fill="none" stroke="currentColor" strokeWidth="1" d={`M50,${y} Q30,${y-15} 15,${y-30}`} />
+            <circle cx="85" cy={y-30} r="2.5" fill="#e11d48" />
+            <circle cx="15" cy={y-30} r="2.5" fill="#e11d48" />
+          </g>
+        ))}
+        <circle cx="50" cy="20" r="5" fill="#e11d48" />
+      </svg>
+    </div>
+
+    {/* Верхний правый угол: Древо (оригинальный стиль пользователя) */}
+    <div className="absolute -right-10 -top-10 w-[400px] h-[500px] opacity-[0.04] text-blue-900">
+      <svg viewBox="0 0 100 150" className="w-full h-full">
+        <path fill="none" stroke="currentColor" strokeWidth="1.5" d="M50,150 V30" />
+        {[50, 80, 110, 140].map(y => (
+          <g key={y}>
+            <path fill="none" stroke="currentColor" strokeWidth="1" d={`M50,${y} Q80,${y-20} 90,${y-40}`} />
+            <path fill="none" stroke="currentColor" strokeWidth="1" d={`M50,${y} Q20,${y-20} 10,${y-40}`} />
+            <circle cx="90" cy={y-40} r="2.5" fill="#e11d48" />
+            <circle cx="10" cy={y-40} r="2.5" fill="#e11d48" />
+          </g>
+        ))}
+        <path fill="currentColor" d="M50,30 L60,15 L50,5 L40,15 Z" />
+      </svg>
+    </div>
+
+    {/* Нижний левый угол: Повторение стиля */}
+    <div className="absolute -left-10 -bottom-10 w-[350px] h-[400px] opacity-[0.035] text-blue-800 rotate-180">
+      <svg viewBox="0 0 100 150" className="w-full h-full">
+        <path fill="none" stroke="currentColor" strokeWidth="1.5" d="M50,150 V30" />
+        {[60, 90, 120].map(y => (
+          <g key={y}>
+            <path fill="none" stroke="currentColor" strokeWidth="1" d={`M50,${y} Q75,${y-15} 85,${y-30}`} />
+            <path fill="none" stroke="currentColor" strokeWidth="1" d={`M50,${y} Q25,${y-15} 15,${y-30}`} />
+            <circle cx="85" cy={y-30} r="2" fill="#e11d48" />
+            <circle cx="15" cy={y-30} r="2" fill="#e11d48" />
+          </g>
+        ))}
+      </svg>
+    </div>
+
+    {/* Нижний правый угол: Повторение стиля */}
+    <div className="absolute -right-10 -bottom-10 w-[350px] h-[400px] opacity-[0.035] text-blue-800 rotate-180">
+      <svg viewBox="0 0 100 150" className="w-full h-full">
+        <path fill="none" stroke="currentColor" strokeWidth="1.5" d="M50,150 V30" />
+        {[60, 90, 120].map(y => (
+          <g key={y}>
+            <path fill="none" stroke="currentColor" strokeWidth="1" d={`M50,${y} Q75,${y-15} 85,${y-30}`} />
+            <path fill="none" stroke="currentColor" strokeWidth="1" d={`M50,${y} Q25,${y-15} 15,${y-30}`} />
+            <circle cx="85" cy={y-30} r="2" fill="#e11d48" />
+            <circle cx="15" cy={y-30} r="2" fill="#e11d48" />
+          </g>
+        ))}
+      </svg>
+    </div>
+
+    {/* Тонкие боковые линии с точками (как вышивка) */}
+    <div className="absolute top-1/2 left-4 -translate-y-1/2 h-[60vh] w-px bg-slate-200 opacity-20">
+      {[...Array(10)].map((_, i) => (
+        <div key={i} className="absolute w-1 h-1 bg-blue-400 rounded-full -left-[1.5px]" style={{ top: `${i * 11}%` }} />
+      ))}
+    </div>
+    <div className="absolute top-1/2 right-4 -translate-y-1/2 h-[60vh] w-px bg-slate-200 opacity-20">
+      {[...Array(10)].map((_, i) => (
+        <div key={i} className="absolute w-1 h-1 bg-blue-400 rounded-full -left-[1.5px]" style={{ top: `${i * 11}%` }} />
+      ))}
+    </div>
+
+    {/* Редкие ягодные искорки */}
+    <div className="absolute inset-0 opacity-[0.06]">
+      {[...Array(15)].map((_, i) => (
+        <div 
+          key={i} 
+          className="absolute rounded-full"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            width: '3px',
+            height: '3px',
+            backgroundColor: Math.random() > 0.7 ? '#e11d48' : '#cbd5e1',
+          }}
+        />
+      ))}
+    </div>
+  </div>
+);
+
 const App: React.FC = () => {
   const [currentSection, setCurrentSection] = useState<Section>(Section.HOME);
   const [selectedOrphogramId, setSelectedOrphogramId] = useState<string | null>(null);
@@ -50,7 +146,7 @@ const App: React.FC = () => {
     const overallProgress = calculateOverallProgress();
     
     return (
-      <div className="max-w-7xl mx-auto px-4 pt-32 pb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <div className="max-w-7xl mx-auto px-4 pt-32 pb-16 animate-in fade-in slide-in-from-bottom-4 duration-700 relative z-10">
         <div className="text-center mb-20 space-y-6">
           <div className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-4">
             <span className="text-xs font-black text-blue-600 uppercase tracking-widest">Образовательная платформа 2026</span>
@@ -123,7 +219,7 @@ const App: React.FC = () => {
       const orphogram = ORPHOGRAMS.find(o => o.id === selectedTheoryId);
       if (orphogram) {
         return (
-          <div className="pt-28 pb-10 px-4 animate-in fade-in zoom-in-95 duration-500">
+          <div className="pt-28 pb-10 px-4 animate-in fade-in zoom-in-95 duration-500 relative z-10">
             <TheoryCard 
               orphogram={orphogram} 
               onBack={() => setSelectedTheoryId(null)} 
@@ -135,7 +231,7 @@ const App: React.FC = () => {
     }
 
     return (
-      <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4">
+      <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4 relative z-10">
         <div className="mb-12 border-l-8 border-blue-600 pl-8 py-2">
           <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Библиотека знаний</h2>
           <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">9 фундаментальных тем орфографии</p>
@@ -159,7 +255,7 @@ const App: React.FC = () => {
   };
 
   const renderMnemonics = () => (
-    <div className="max-w-6xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4">
+    <div className="max-w-6xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4 relative z-10">
       <div className="mb-12 border-l-8 border-purple-600 pl-8 py-2">
         <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Правила в рифмах</h2>
         <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Легкий путь к запоминанию через поэзию ({MNEMONICS.length} правил)</p>
@@ -178,7 +274,7 @@ const App: React.FC = () => {
       const orphogram = ORPHOGRAMS.find(o => o.id === selectedOrphogramId);
       
       return (
-        <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in zoom-in-95 duration-500">
+        <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in zoom-in-95 duration-500 relative z-10">
           <button 
             onClick={() => setSelectedOrphogramId(null)}
             className="mb-8 text-slate-900 font-bold flex items-center bg-white px-6 py-3 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all active:scale-95"
@@ -203,7 +299,7 @@ const App: React.FC = () => {
     }
 
     return (
-      <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4">
+      <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4 relative z-10">
         <div className="mb-12 border-l-8 border-green-600 pl-8 py-2">
           <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Зал тренировок</h2>
           <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Закрепляй знания на практике</p>
@@ -226,7 +322,7 @@ const App: React.FC = () => {
   };
 
   const renderArena = () => (
-    <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4">
+    <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4 relative z-10">
       <div className="mb-12 border-l-8 border-red-600 pl-8 py-2">
         <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Арена грамотности</h2>
         <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Найди и исправь все скрытые ошибки</p>
@@ -240,7 +336,7 @@ const App: React.FC = () => {
   );
 
   const renderFinalTest = () => (
-    <div className="max-w-5xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4">
+    <div className="max-w-5xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4 relative z-10">
       <div className="text-center mb-16">
         <h2 className="text-5xl md:text-6xl font-black mb-4 heading-font text-slate-900 tracking-tighter">Финальный вызов</h2>
         <p className="text-xl text-slate-500 font-medium max-w-xl mx-auto">Комплексный экзамен из 20 вопросов. Только для настоящих экспертов.</p>
@@ -265,7 +361,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      <FolkPatternBackground />
       <Navigation currentSection={currentSection} setSection={(s) => {
         setCurrentSection(s);
         setSelectedOrphogramId(null);
@@ -274,7 +371,7 @@ const App: React.FC = () => {
       <main className="flex-grow">
         {renderContent()}
       </main>
-      <footer className="mt-20 py-16 bg-white/80 border-t border-slate-200 backdrop-blur-md">
+      <footer className="mt-20 py-16 bg-white/80 border-t border-slate-200 backdrop-blur-md relative z-10">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
           <div className="text-left">
             <h4 className="text-2xl font-black text-slate-900 heading-font mb-2 tracking-tight">УЧИМСЯ ИГРАЯ</h4>
@@ -315,8 +412,7 @@ const App: React.FC = () => {
   );
 };
 
-// --- MODERN COMPONENTS (Dashboard, HomeCard, ExpandableTopicCard, MnemonicCard, ArenaCard remains similar) ---
-// ... (Including components here to ensure file completeness)
+// --- MODERN COMPONENTS ---
 
 const GlobalProgressDashboard: React.FC<{ progress: number }> = ({ progress }) => {
   const getTreeStage = () => {
