@@ -10,11 +10,11 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ currentSection, setSection }) => {
   const navItems = [
     { id: Section.HOME, label: 'Главная' },
-    { id: Section.THEORY, label: 'Теория' },
-    { id: Section.MNEMONICS, label: 'Стихи' },
-    { id: Section.PRACTICE, label: 'Тренажер' },
-    { id: Section.ARENA, label: 'Арена' },
-    { id: Section.FINAL_TEST, label: 'Итоговый' },
+    { id: Section.THEORY, label: 'Теоретические пятиминутки' },
+    { id: Section.MNEMONICS, label: 'Запоминаем, играя' },
+    { id: Section.PRACTICE, label: 'Орфографический полигон' },
+    { id: Section.ARENA, label: 'Арена грамотности' },
+    { id: Section.FINAL_TEST, label: 'Итоговая аттестация' },
   ];
 
   return (
@@ -26,7 +26,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentSection, setSection }) =
               className="text-lg md:text-xl font-black text-blue-600 cursor-pointer heading-font tracking-tighter"
               onClick={() => setSection(Section.HOME)}
             >
-              УЧИМСЯ<span className="text-slate-800">ИГРАЯ</span>
+              ГРАМО<span className="text-slate-800">ТЕЙКА</span>
             </span>
           </div>
           
