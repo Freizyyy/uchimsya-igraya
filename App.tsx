@@ -152,10 +152,10 @@ const App: React.FC = () => {
             <span className="text-xs font-black text-blue-600 uppercase tracking-widest">Образовательная платформа 2026</span>
           </div>
           <h1 className="text-5xl md:text-8xl font-black text-slate-900 heading-font leading-tight tracking-tight">
-            Будущее твоей <br/><span className="text-blue-600 italic">грамотности</span>
+            ГРАМО<span className="text-blue-600 italic">ТЕЙКА</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-            Интерактивное пространство для освоения русского языка через геймификацию, стихи и практику.
+            Ваш интерактивный помощник в мире русского языка. Осваивайте орфографию через теорию, стихи и практику.
           </p>
         </div>
 
@@ -165,8 +165,8 @@ const App: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <HomeCard 
-            title="Теория" 
-            description="База правил в формате компактных интерактивных карточек."
+            title="Теоретические пятиминутки" 
+            description="Теоретический материал по представленным на сайте орфограммам в удобном формате."
             details={["Лаконичные формулировки", "Умные примеры", "Мини-контроль"]}
             progress={getSectionProgress('theory')}
             icon="📚"
@@ -174,8 +174,8 @@ const App: React.FC = () => {
             onClick={() => setCurrentSection(Section.THEORY)}
           />
           <HomeCard 
-            title="Стихи" 
-            description="Мнемонические рифмы для легкого запоминания исключений и сложных тем."
+            title="Запоминаем, играя" 
+            description="Короткие стихотворения для легкого запоминания орфографических правил."
             details={["Авторские стихи", "Визуальные якоря", "Тесты на память"]}
             progress={0} 
             icon="🎨"
@@ -183,8 +183,8 @@ const App: React.FC = () => {
             onClick={() => setCurrentSection(Section.MNEMONICS)}
           />
           <HomeCard 
-            title="Тренажер" 
-            description="Закрепление каждой орфограммы через персонализированные тесты."
+            title="Орфографический полигон" 
+            description="Задания для отработки практических навыков и закрепления каждой орфограммы."
             details={["Индивидуальный объем", "Адаптивная сложность", "Мгновенный разбор"]}
             progress={getSectionProgress('practice')}
             icon="🎯"
@@ -192,8 +192,8 @@ const App: React.FC = () => {
             onClick={() => setCurrentSection(Section.PRACTICE)}
           />
           <HomeCard 
-            title="Арена" 
-            description="Интерактивный редактор для поиска и исправления ошибок в контексте."
+            title="Арена грамотности" 
+            description="Интерактивный режим «найди ошибку» для развития орфографической зоркости."
             details={["Режим детектива", "Работа с текстом", "Подсказки эксперта"]}
             progress={0}
             icon="⚔️"
@@ -201,8 +201,8 @@ const App: React.FC = () => {
             onClick={() => setCurrentSection(Section.ARENA)}
           />
           <HomeCard 
-            title="Итоговый тест" 
-            description="Генеральная проверка всех знаний школьного курса."
+            title="Итоговая аттестация" 
+            description="Генеральная проверка всех знаний и итоговый контроль навыков."
             details={["20 сложных вопросов", "Полный отчет", "Трофей знатока"]}
             progress={0}
             icon="🏆"
@@ -233,7 +233,7 @@ const App: React.FC = () => {
     return (
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4 relative z-10">
         <div className="mb-12 border-l-8 border-blue-600 pl-8 py-2">
-          <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Библиотека знаний</h2>
+          <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Теоретические пятиминутки</h2>
           <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">9 фундаментальных тем орфографии</p>
         </div>
         
@@ -257,8 +257,8 @@ const App: React.FC = () => {
   const renderMnemonics = () => (
     <div className="max-w-6xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4 relative z-10">
       <div className="mb-12 border-l-8 border-purple-600 pl-8 py-2">
-        <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Правила в рифмах</h2>
-        <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Легкий путь к запоминанию через поэзию ({MNEMONICS.length} правил)</p>
+        <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Запоминаем, играя</h2>
+        <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Короткие стихотворения для запоминания правил ({MNEMONICS.length} тем)</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         {MNEMONICS.map(m => (
@@ -301,7 +301,7 @@ const App: React.FC = () => {
     return (
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4 relative z-10">
         <div className="mb-12 border-l-8 border-green-600 pl-8 py-2">
-          <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Зал тренировок</h2>
+          <h2 className="text-4xl md:text-5xl font-black heading-font text-slate-900 mb-2">Орфографический полигон</h2>
           <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Закрепляй знания на практике</p>
         </div>
         <div className="space-y-4">
@@ -338,8 +338,8 @@ const App: React.FC = () => {
   const renderFinalTest = () => (
     <div className="max-w-5xl mx-auto px-4 pt-32 pb-10 animate-in fade-in slide-in-from-bottom-4 relative z-10">
       <div className="text-center mb-16">
-        <h2 className="text-5xl md:text-6xl font-black mb-4 heading-font text-slate-900 tracking-tighter">Финальный вызов</h2>
-        <p className="text-xl text-slate-500 font-medium max-w-xl mx-auto">Комплексный экзамен из 20 вопросов. Только для настоящих экспертов.</p>
+        <h2 className="text-5xl md:text-6xl font-black mb-4 heading-font text-slate-900 tracking-tighter">Итоговая аттестация</h2>
+        <p className="text-xl text-slate-500 font-medium max-w-xl mx-auto">Комплексный экзамен для проверки всех полученных знаний.</p>
       </div>
       <TestComponent 
         title="Итоговая аттестация" 
@@ -374,7 +374,7 @@ const App: React.FC = () => {
       <footer className="mt-20 py-16 bg-white/80 border-t border-slate-200 backdrop-blur-md relative z-10">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
           <div className="text-left">
-            <h4 className="text-2xl font-black text-slate-900 heading-font mb-2 tracking-tight">УЧИМСЯ ИГРАЯ</h4>
+            <h4 className="text-2xl font-black text-slate-900 heading-font mb-2 tracking-tight">ГРАМОТЕЙКА</h4>
             <p className="text-slate-400 font-semibold text-sm mb-6">Личный навигатор в мире русского языка.</p>
             <p className="text-slate-300 font-bold text-xs uppercase tracking-widest">
               © 2026 Интерактивная платформа. Все права защищены.
