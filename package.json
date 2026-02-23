@@ -1,13 +1,14 @@
 
 {
-  "name": "orfograficheskiy-pomoshnik",
+  "name": "gramoteyka",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "react": "^19.0.0",
